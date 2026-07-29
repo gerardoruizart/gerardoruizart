@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graphic Arts - Gerardo Ruiz Maldonado</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/gallery.css">
+</head>
+<body>
+  <script src="/js/header.js"></script>
+  <main>
+    <div class="page-header">
+      <h1 data-en="Graphic Arts" data-es="Gráfica">Graphic Arts</h1>
+      <p class="page-intro" data-en="Printmaking and engraving techniques" data-es="Técnicas de grabado y aguafuerte">Printmaking and engraving techniques</p>
+    </div>
+    
+    <section class="gallery">
+      <div class="gallery-grid">
+        <article class="gallery-item" data-index="0">
+          <img src="/assets/images/etching_b&w.jpg" alt="Etching technique" loading="lazy">
+        </article>
+
+        <article class="gallery-item" data-index="1">
+          <img src="/assets/images/gerardo_grabado_b&w_5.jpg" alt="Engraving work" loading="lazy">
+        </article>
+
+        <article class="gallery-item" data-index="2">
+          <img src="/assets/images/gerardo_grabado_b&w_6.jpg" alt="Print detail work" loading="lazy">
+        </article>
+
+        <article class="gallery-item" data-index="3">
+          <img src="/assets/images/flyer_grabado.jpg" alt="Finished print" loading="lazy">
+        </article>
+
+        <article class="gallery-item" data-index="4">
+          <img src="/assets/images/flyer_grabado_1.jpg" alt="Intaglio work" loading="lazy">
+        </article>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+      <button class="lightbox-prev" id="prevBtn">&#10094;</button>
+      <div class="lightbox-container">
+        <button class="lightbox-close" id="closeBtn">&times;</button>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+      </div>
+      <button class="lightbox-next" id="nextBtn">&#10095;</button>
+    </div>
+
+    <section class="work-description">
+      <h2 data-en="About This Series" data-es="Sobre Esta Serie">About This Series</h2>
+      <p data-en="Gerardo's printmaking practice explores the intersection of geometry, tradition, and innovation. Working with metal engraving, intaglio, and alternative techniques, his prints capture subtle variations of light and shadow while maintaining the precision and discipline of classical methods." data-es="La práctica de grabado de Gerardo explora la intersección entre geometría, tradición e innovación. Trabajando con grabado en metal, huecograbado y técnicas alternativas, sus grabados capturan sutiles variaciones de luz y sombra mientras mantienen la precisión y disciplina de los métodos clásicos.">
+        Gerardo's printmaking practice explores the intersection of geometry, tradition, and innovation. Working with metal engraving, intaglio, and alternative techniques, his prints capture subtle variations of light and shadow while maintaining the precision and discipline of classical methods.
+      </p>
+    </section>
+  </main>
+
+  <style>
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-lg);
+      padding: var(--spacing-lg);
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox-container {
+      position: relative;
+      max-width: 85%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); }
+      to { transform: scale(1); }
+    }
+
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.2);
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 15px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .lightbox-caption {
+      color: white;
+      text-align: center;
+      padding: 15px 10px 0;
+      font-size: 0.95rem;
+      max-width: 100%;
+    }
+
+    .gallery-item img {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.02);
+    }
+
+    .work-description {
+      max-width: 800px;
+      margin: var(--spacing-xl) auto;
+      padding: var(--spacing-lg);
+      background: #f5f5f5;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .work-description h2 {
+      margin-top: 0;
+    }
+  </style>
+
+  <script>
+    // Gallery data
+    const galleryItems = [
+      { src: '/assets/images/etching_b&w.jpg' },
+      { src: '/assets/images/gerardo_grabado_b&w_5.jpg' },
+      { src: '/assets/images/gerardo_grabado_b&w_6.jpg' },
+      { src: '/assets/images/flyer_grabado.jpg' },
+      { src: '/assets/images/flyer_grabado_1.jpg' }
+    ];
+
+    let currentIndex = 0;
+
+    const modal = document.getElementById('lightboxModal');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const closeBtn = document.getElementById('closeBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    // Open lightbox
+    document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        openLightbox();
+      });
+    });
+
+    function openLightbox() {
+      const item = galleryItems[currentIndex];
+      lightboxImage.src = item.src;
+      lightboxCaption.textContent = '';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function showPrevious() {
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      openLightbox();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      openLightbox();
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', showPrevious);
+    nextBtn.addEventListener('click', showNext);
+
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (modal.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') showPrevious();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'Escape') closeLightbox();
+      }
+    });
+
+    window.addEventListener('languageChanged', (e) => {
+      const lang = e.detail.lang === 'es' ? 'es' : 'en';
+      document.querySelectorAll('[data-en][data-es]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.textContent = text;
+      });
+    });
+  </script>
+
+  <script src="/js/footer.js"></script>
+</body>
+</html>

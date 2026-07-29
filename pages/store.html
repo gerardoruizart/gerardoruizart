@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Store | Gerardo Ruiz Maldonado" data-es="Tienda | Gerardo Ruiz Maldonado">Store | Gerardo Ruiz Maldonado</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css">
+    <style>
+        .store-hero {
+            background: linear-gradient(135deg, #1b2235 0%, #2a3a52 100%);
+            color: #fff6ed;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .store-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-family: Georgia, serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .store-hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .product-card {
+            background: #fff6ed;
+            border: 1px solid #d4c4b0;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 24px rgba(27, 34, 53, 0.12);
+            border-color: #8b7355;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: #f0e8dd;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: #8b7355;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-family: Georgia, serif;
+            color: #1b2235;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #d4c4b0;
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-family: Georgia, serif;
+            color: #1b2235;
+            font-weight: 500;
+        }
+
+        .add-to-cart-btn {
+            background: #8b7355;
+            color: #fff6ed;
+            border: none;
+            padding: 0.65rem 1.2rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #6d5744;
+        }
+
+        .filter-btn {
+            background: #ffffff !important;
+            color: #1b2235 !important;
+            border: 1px solid #999999 !important;
+            padding: 0.65rem 1.25rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-btn:hover {
+            background: #8b7355 !important;
+            color: #fff6ed !important;
+            border-color: #8b7355 !important;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #8b7355;
+            color: #fff6ed;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filters-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-size: 0.95rem;
+            color: #1b2235;
+            font-weight: 500;
+        }
+
+        .store-note {
+            background: #f0e8dd;
+            border-left: 4px solid #8b7355;
+            padding: 1.5rem;
+            max-width: 1200px;
+            margin: 3rem auto 2rem;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            border-radius: 2px;
+        }
+
+        .store-note p {
+            margin: 0;
+            color: #1b2235;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .store-hero {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .store-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .product-image {
+                height: 220px;
+            }
+
+            .filters-section {
+                padding: 0 1rem;
+            }
+
+            .store-note {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+
+        /* Snipcart customization */
+        .snipcart-modal {
+            font-family: inherit;
+        }
+
+        .snipcart__base-button {
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <script src="../js/header.js"></script>
+
+    <div class="store-hero">
+        <h1 data-en="Art & Works" data-es="Arte y Obras">Art & Works</h1>
+        <p data-en="Purchase original artworks, limited prints, and workshop sessions directly from Gerardo Ruiz Maldonado" data-es="Adquiere obras de arte originales, impresiones limitadas y sesiones de taller directamente de Gerardo Ruiz Maldonado">Purchase original artworks, limited prints, and workshop sessions directly from Gerardo Ruiz Maldonado</p>
+    </div>
+
+    <div class="filters-section">
+        <span class="filter-label" data-en="Browse by category:" data-es="Explora por categoría:">Browse by category:</span>
+        <button class="filter-btn" onclick="filterProducts('all')" data-en="All" data-es="Todos">All</button>
+        <button class="filter-btn" onclick="filterProducts('painting')" data-en="Paintings" data-es="Pinturas">Paintings</button>
+        <button class="filter-btn" onclick="filterProducts('print')" data-en="Prints" data-es="Grabados">Prints</button>
+        <button class="filter-btn" onclick="filterProducts('sculpture')" data-en="Sculptures" data-es="Esculturas">Sculptures</button>
+        <button class="filter-btn" onclick="filterProducts('workshop')" data-en="Workshops" data-es="Talleres">Workshops</button>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+        <!-- Products will be generated by JavaScript -->
+    </div>
+
+    <div class="store-note">
+        <p data-en="Each piece is handcrafted by Gerardo with meticulous attention to detail. Original works and limited editions are available for immediate purchase. Workshop sessions can be scheduled for groups of 2 or more. Shipping available worldwide." data-es="Cada pieza es elaborada a mano por Gerardo con meticulosa atención al detalle. Las obras originales y ediciones limitadas están disponibles para compra inmediata. Las sesiones de taller se pueden programar para grupos de 2 o más. Envíos disponibles a nivel mundial.">Each piece is handcrafted by Gerardo with meticulous attention to detail. Original works and limited editions are available for immediate purchase. Workshop sessions can be scheduled for groups of 2 or more. Shipping available worldwide.</p>
+    </div>
+
+    <script src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
+    <div id="snipcart" data-api-key="NGM5YmNlYjctNjdmYi00NDY5LWJjYTctYjdlZWVjYTE5ODZiNjM5MjA4NzIwMTk0OTU3ODg1"></div>
+
+    <script>
+        let allProducts = [];
+        let currentFilter = 'all';
+        const SNIPCART_API_KEY = 'NGM5YmNlYjctNjdmYi00NDY5LWJjYTctYjdlZWVjYTE5ODZiNjM5MjA4NzIwMTk0OTU3ODg1';
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', async function() {
+            await fetchProductsFromSnipcart();
+            renderProducts('all');
+            updateLanguageDisplay();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', function() {
+            updateLanguageDisplay();
+            renderProducts(currentFilter);
+        });
+
+        // Fetch products from Snipcart API
+        async function fetchProductsFromSnipcart() {
+            try {
+                const response = await fetch('https://app.snipcart.com/api/products', {
+                    headers: {
+                        'Authorization': `Bearer ${SNIPCART_API_KEY}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    allProducts = data.items || [];
+                    console.log('Products loaded from Snipcart:', allProducts);
+                } else {
+                    console.error('Failed to fetch products from Snipcart');
+                }
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+
+        function renderProducts(filter) {
+            currentFilter = filter;
+            const grid = document.getElementById('products-grid');
+            
+            if (allProducts.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; color: #555; grid-column: 1 / -1;">No products available. Add products in your Snipcart dashboard.</p>';
+                return;
+            }
+
+            const filtered = filter === 'all' 
+                ? allProducts 
+                : allProducts.filter(p => {
+                    const category = (p.metadata?.category || '').toLowerCase();
+                    return category === filter;
+                });
+
+            grid.innerHTML = filtered.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image || '../assets/images/placeholder.jpg'}" alt="${product.name}" loading="lazy">
+                        ${product.metadata?.badge ? `<div class="product-badge">${product.metadata.badge}</div>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${getCategoryLabel(product.metadata?.category)}</div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description || 'No description available.'}</p>
+                        <div class="product-footer">
+                            <span class="product-price">$${product.price.toLocaleString()}</span>
+                            <button 
+                                class="snipcart-add-item add-to-cart-btn"
+                                data-item-id="${product.id}"
+                                data-item-name="${product.name}"
+                                data-item-price="${product.price}"
+                                data-item-image="${product.image || '../assets/images/placeholder.jpg'}"
+                                data-item-url="https://gerardoruizart.com/pages/store.html"
+                            >
+                                ${getLanguage() === 'en' ? 'Add to Cart' : 'Añadir al Carrito'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Reinitialize Snipcart after DOM update
+            if (window.Snipcart) {
+                Snipcart.theme.renderButtons();
+            }
+        }
+
+        function filterProducts(category) {
+            renderProducts(category);
+        }
+
+        function getLanguage() {
+            return localStorage.getItem('lang') || 'en';
+        }
+
+        function getCategoryLabel(category) {
+            if (!category) return '';
+            const labels = {
+                'painting': { en: 'Painting', es: 'Pintura' },
+                'print': { en: 'Print', es: 'Grabado' },
+                'sculpture': { en: 'Sculpture', es: 'Escultura' },
+                'workshop': { en: 'Workshop', es: 'Taller' }
+            };
+            const categoryLower = category.toLowerCase();
+            const lang = getLanguage();
+            return labels[categoryLower] ? labels[categoryLower][lang] : category;
+        }
+
+        function updateLanguageDisplay() {
+            const lang = getLanguage();
+            document.querySelectorAll('[data-en][data-es]').forEach(el => {
+                if (!el.dataset.key) {
+                    el.textContent = lang === 'en' ? el.dataset.en : el.dataset.es;
+                }
+            });
+
+            // Update button text
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.textContent = lang === 'en' ? 'Add to Cart' : 'Añadir al Carrito';
+            });
+        }
+    </script>
+
+    <script src="../js/footer.js"></script>
+</body>
+</html>

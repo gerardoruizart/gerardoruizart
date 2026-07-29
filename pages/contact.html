@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Gerardo Ruiz Maldonado</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <script src="/js/header.js"></script>
+  <main>
+    <div class="page-header">
+      <h1 data-en="Contact" data-es="Contacto">Contact</h1>
+      <p class="page-intro" data-en="Get in touch with Gerardo" data-es="Ponte en contacto con Gerardo">Get in touch with Gerardo</p>
+      <div class="contact-hero-image">
+        <img src="/assets/images/gerardo_b&w.jpg" alt="Gerardo Ruiz Maldonado">
+      </div>
+    </div>
+
+    <section class="contact-section">
+      <div class="contact-info">
+        <h2 data-en="Studio Location" data-es="Ubicación del Estudio">Studio Location</h2>
+        <p>San Miguel de Allende<br>Guanajuato, México</p>
+        
+        <h2 data-en="Email" data-es="Correo Electrónico">Email</h2>
+        <p><a href="mailto:gerardoruizmaldonado.art@gmail.com">gerardoruizmaldonado.art@gmail.com</a></p>
+
+        <h2 data-en="Rates" data-es="Tarifas">Rates</h2>
+        <p data-en="4-hour workshops: $1,200 / Includes all materials and tools / Private sessions available" data-es="Talleres de 4 horas: $1,200 / Incluye todos los materiales y herramientas / Sesiones privadas disponibles">
+          4-hour workshops: $1,200<br>Includes all materials and tools<br>Private sessions available
+        </p>
+
+        <div class="contact-note">
+          <div class="contact-logo">
+            <img src="/assets/images/alt_logo.png" alt="Gerardo Ruiz">
+          </div>
+          <p data-en="Interested in a specific discipline or technique? Let us know in your message and we'll discuss options tailored to your interests and skill level." data-es="¿Interesado en una disciplina o técnica específica? Cuéntanos en tu mensaje y discutiremos opciones adaptadas a tus intereses y nivel de habilidad.">
+            Interested in a specific discipline or technique? Let us know in your message and we'll discuss options tailored to your interests and skill level.
+          </p>
+        </div>
+      </div>
+
+      <form class="contact-form" name="contact" method="POST" netlify>
+        <input type="hidden" name="_to" value="gerardoruizmaldonado.art@gmail.com">
+        <input type="hidden" name="_subject" value="New Workshop Inquiry from gerardoruizart.com">
+        
+        <div class="form-group">
+          <label data-en="Name" data-es="Nombre">Name</label>
+          <input type="text" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label data-en="Email" data-es="Correo">Email</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label data-en="Subject" data-es="Asunto">Subject</label>
+          <input type="text" name="subject">
+        </div>
+
+        <div class="form-group">
+          <label data-en="Message" data-es="Mensaje">Message</label>
+          <textarea name="message" rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="cta-button-dark" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <style>
+    .page-header .page-intro {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .contact-hero-image {
+      max-width: 280px;
+      margin: 0 auto var(--spacing-xl);
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .contact-hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .contact-section {
+      max-width: 900px;
+      margin: var(--spacing-xl) auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--spacing-xl);
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+      padding: var(--spacing-lg);
+      border-radius: 4px;
+      border-left: 4px solid var(--accent-color);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .contact-info h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: var(--spacing-sm);
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .contact-info p {
+      margin: 0;
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .contact-info a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-note {
+      padding-top: var(--spacing-lg);
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .contact-logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .contact-note p {
+      font-size: 0.9rem;
+      color: var(--light-text);
+      font-style: italic;
+      margin: 0;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: var(--spacing-xs);
+      color: var(--primary-color);
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: var(--spacing-sm);
+      border: 2px solid #e0e0e0;
+      border-radius: 4px;
+      font-family: var(--font-family-sans);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+    }
+
+    .cta-button-dark {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 10px var(--spacing-lg);
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .cta-button-dark:hover {
+      background-color: var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    window.addEventListener('languageChanged', (e) => {
+      const lang = e.detail.lang === 'es' ? 'es' : 'en';
+      document.querySelectorAll('[data-en][data-es]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.textContent = text;
+      });
+    });
+  </script>
+
+  <script src="/js/footer.js"></script>
+</body>
+</html>

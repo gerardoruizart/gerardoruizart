@@ -1,0 +1,105 @@
+backend:
+  name: github
+  repo: gerardoruizart/gerardoruizart
+  branch: main
+  auth_endpoint: auth
+
+media_folder: assets/images
+public_folder: /assets/images
+
+collections:
+  # PAGES COLLECTION
+  - name: pages
+    label: Pages
+    folder: _content/pages
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page Name", name: "page_name", widget: "string", help: "Internal name (e.g., About, Workshops)" }
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Hero Image", name: "image", widget: "image" }
+          - { label: "Heading (EN)", name: "heading_en", widget: "string" }
+          - { label: "Heading (ES)", name: "heading_es", widget: "string" }
+          - { label: "Subheading (EN)", name: "subheading_en", widget: "text" }
+          - { label: "Subheading (ES)", name: "subheading_es", widget: "text" }
+      - label: "Page Content"
+        name: "content"
+        widget: "object"
+        fields:
+          - { label: "Content (EN)", name: "text_en", widget: "markdown" }
+          - { label: "Content (ES)", name: "text_es", widget: "markdown" }
+      - label: "Additional Images"
+        name: "additional_images"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Caption (EN)", name: "caption_en", widget: "string", required: false }
+          - { label: "Caption (ES)", name: "caption_es", widget: "string", required: false }
+
+  # PRODUCTS/STORE COLLECTION
+  - name: products
+    label: Store Products
+    folder: _content/products
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Product ID", name: "id", widget: "string", pattern: ["^[a-z0-9-]+$", "Must be lowercase letters, numbers, and hyphens"] }
+      - { label: "Product Name (EN)", name: "name_en", widget: "string" }
+      - { label: "Product Name (ES)", name: "name_es", widget: "string" }
+      - { label: "Product Image", name: "image", widget: "image" }
+      - { label: "Price ($)", name: "price", widget: "number", valueType: "int", min: 0 }
+      - { label: "Description (EN)", name: "description_en", widget: "text" }
+      - { label: "Description (ES)", name: "description_es", widget: "text" }
+      - { label: "Category", name: "category", widget: "select", options: ["painting", "print", "sculpture", "workshop"] }
+      - { label: "Badge (Optional)", name: "badge", widget: "select", options: ["", "Original", "Limited", "Unique", "Group"], default: "" }
+
+  # PAINTINGS GALLERY COLLECTION
+  - name: paintings_gallery
+    label: Paintings Gallery
+    folder: _content/galleries/paintings
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Painting Image", name: "image", widget: "image" }
+      - { label: "Title (EN)", name: "title_en", widget: "string" }
+      - { label: "Title (ES)", name: "title_es", widget: "string" }
+      - { label: "Description (EN)", name: "description_en", widget: "text", required: false }
+      - { label: "Description (ES)", name: "description_es", widget: "text", required: false }
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+
+  # SCULPTURES GALLERY COLLECTION
+  - name: sculptures_gallery
+    label: Sculptures Gallery
+    folder: _content/galleries/sculptures
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Sculpture Image", name: "image", widget: "image" }
+      - { label: "Title (EN)", name: "title_en", widget: "string" }
+      - { label: "Title (ES)", name: "title_es", widget: "string" }
+      - { label: "Description (EN)", name: "description_en", widget: "text", required: false }
+      - { label: "Description (ES)", name: "description_es", widget: "text", required: false }
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
+      - { label: "Material", name: "material", widget: "string", required: false }
+
+  # GRAPHIC ARTS GALLERY COLLECTION
+  - name: graphics_gallery
+    label: Graphic Arts Gallery
+    folder: _content/galleries/graphics
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Graphic Image", name: "image", widget: "image" }
+      - { label: "Title (EN)", name: "title_en", widget: "string" }
+      - { label: "Title (ES)", name: "title_es", widget: "string" }
+      - { label: "Description (EN)", name: "description_en", widget: "text", required: false }
+      - { label: "Description (ES)", name: "description_es", widget: "text", required: false }
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Type", name: "type", widget: "string", help: "e.g., Etching, Screenprint, Lithograph", required: false }
+      - { label: "Edition Info", name: "edition", widget: "string", help: "e.g., Limited edition of 50", required: false }
