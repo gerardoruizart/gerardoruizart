@@ -6,7 +6,7 @@ const languageData = {
     work: 'Work',
     workPainting: 'Painting',
     workSculpture: 'Sculpture',
-    workGraphic: 'Graphic Arts',
+    workPrintmaking: 'Printmaking',
     workshops: 'Workshops',
     contact: 'Contact'
   },
@@ -16,7 +16,7 @@ const languageData = {
     work: 'Obra',
     workPainting: 'Pintura',
     workSculpture: 'Escultura',
-    workGraphic: 'Gráfica',
+    workPrintmaking: 'Grabado',
     workshops: 'Talleres',
     contact: 'Contacto'
   }
@@ -45,17 +45,17 @@ function createHeader() {
       <nav class="main-nav">
         <ul class="nav-list">
           <li><a href="/" class="nav-link" data-key="home">Home</a></li>
-          <li><a href="/pages/about.html" class="nav-link" data-key="about">About</a></li>
+          <li><a href="/about" class="nav-link" data-key="about">About</a></li>
           <li class="nav-dropdown">
             <button class="nav-link nav-toggle" data-key="work">Work</button>
             <ul class="dropdown-menu">
-              <li><a href="/pages/work-painting.html" class="dropdown-link" data-key="workPainting">Painting</a></li>
-              <li><a href="/pages/work-sculpture.html" class="dropdown-link" data-key="workSculpture">Sculpture</a></li>
-              <li><a href="/pages/work-graphic.html" class="dropdown-link" data-key="workGraphic">Graphic Arts</a></li>
+              <li><a href="/painting" class="dropdown-link" data-key="workPainting">Painting</a></li>
+              <li><a href="/sculpture" class="dropdown-link" data-key="workSculpture">Sculpture</a></li>
+              <li><a href="/printmaking" class="dropdown-link" data-key="workPrintmaking">Printmaking</a></li>
             </ul>
           </li>
-          <li><a href="/pages/workshops.html" class="nav-link" data-key="workshops">Workshops</a></li>
-          <li><a href="/pages/contact.html" class="nav-link" data-key="contact">Contact</a></li>
+          <li><a href="/workshops" class="nav-link" data-key="workshops">Workshops</a></li>
+          <li><a href="/contact" class="nav-link" data-key="contact">Contact</a></li>
         </ul>
       </nav>
 
@@ -81,17 +81,17 @@ function createHeader() {
       <div class="mobile-menu-content">
         <ul class="mobile-nav-list">
           <li><a href="/" class="nav-link" data-key="home">Home</a></li>
-          <li><a href="/pages/about.html" class="nav-link" data-key="about">About</a></li>
+          <li><a href="/about" class="nav-link" data-key="about">About</a></li>
           <li class="nav-dropdown">
             <button class="nav-link nav-toggle" data-key="work">Work</button>
             <ul class="dropdown-menu">
-              <li><a href="/pages/work-painting.html" class="dropdown-link" data-key="workPainting">Painting</a></li>
-              <li><a href="/pages/work-sculpture.html" class="dropdown-link" data-key="workSculpture">Sculpture</a></li>
-              <li><a href="/pages/work-graphic.html" class="dropdown-link" data-key="workGraphic">Graphic Arts</a></li>
+              <li><a href="/painting" class="dropdown-link" data-key="workPainting">Painting</a></li>
+              <li><a href="/sculpture" class="dropdown-link" data-key="workSculpture">Sculpture</a></li>
+              <li><a href="/printmaking" class="dropdown-link" data-key="workPrintmaking">Printmaking</a></li>
             </ul>
           </li>
-          <li><a href="/pages/workshops.html" class="nav-link" data-key="workshops">Workshops</a></li>
-          <li><a href="/pages/contact.html" class="nav-link" data-key="contact">Contact</a></li>
+          <li><a href="/workshops" class="nav-link" data-key="workshops">Workshops</a></li>
+          <li><a href="/contact" class="nav-link" data-key="contact">Contact</a></li>
         </ul>
       </div>
     </div>

@@ -31,21 +31,51 @@
   force = false
 
 [[redirects]]
-  from = "/work/painting"
+  from = "/painting"
   to = "/pages/work-painting.html"
   status = 200
   force = false
 
 [[redirects]]
-  from = "/work/sculpture"
+  from = "/sculpture"
   to = "/pages/work-sculpture.html"
   status = 200
   force = false
 
 [[redirects]]
-  from = "/work/graphic"
-  to = "/pages/work-graphic.html"
+  from = "/printmaking"
+  to = "/pages/work-printmaking.html"
   status = 200
+  force = false
+
+[[redirects]]
+  from = "/graphic"
+  to = "/printmaking"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/work/painting"
+  to = "/painting"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/work/sculpture"
+  to = "/sculpture"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/work/printmaking"
+  to = "/printmaking"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/work/graphic"
+  to = "/printmaking"
+  status = 301
   force = false
 
 # Catch-all redirect (must be last)
